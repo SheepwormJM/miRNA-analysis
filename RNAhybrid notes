@@ -1,0 +1,16 @@
+Located here: https://bibiserv.cebitec.uni-bielefeld.de/rnahybrid 
+
+Paper reference:
+https://rnajournal.cshlp.org/content/10/10/1507
+https://academic.oup.com/nar/article/34/suppl_2/W451/2505644
+
+Input: 
+Your mRNA sequences (max length of a sequence is 50k bp)
+Your miRNA sequences (max length of an miRNA sequence is something ridiculous, like 200 or 2000). 
+
+Parameters:
+Select the number of sequences you want returned (note, if fewer meet the cut-off parameters, then fewer are returned). 
+
+Select the energy cut-off (note this must be a maximum of zero - the more negative the value, the better the hit. I put in the complementary sequence to the miRNA and got the neg energy value very close to the value for the miRNA itself (reported in output)). 
+
+You can ask for a p-value to be returned (either using fly, worm or human. If you do 'nothing' then it seems to be undefined. I am not really sure what this is doing - Vicky's paper said they used a cut-off of p<0.1 but all the results returned meet the energy cut-off and all have a p-value of 1. ?? - perhaps because I have only one gene???)
