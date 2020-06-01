@@ -9,7 +9,7 @@ setwd("C:/Users/jenni/Documents/Working from home Mar 2020/Learning R bioinforma
 # is written when saved.
 rna<-read.table("test_rnahybrid.txt", sep="|", header=F, na.strings="")
 rna
-write.table(rna[-1,], "test_rna_gene.txt", sep=":", row.names=F, quote=FALSE)
+write.table(rna[-1,], "test_rna_gene.txt", sep=":", row.names=F, quote=FALSE, col.names=F)
 rna2<-read.table("test_rna_gene.txt", sep=":", header=F, na.strings="")
 rna2
 
