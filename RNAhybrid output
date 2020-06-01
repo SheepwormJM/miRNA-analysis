@@ -1,0 +1,27 @@
+# For manipulating tables produced by RNAhybrid (compact output)
+
+getwd()
+setwd("C:/Users/jenni/Documents/Working from home Mar 2020/Learning R bioinformatics/")
+
+# load table (first delete the description lines in notepad)
+# We want to make the gene name on it's own so load this way, then re-save and load again.
+# Note the different separator used for the columns each time, and the way the first table 
+# is written when saved.
+rna<-read.table("test_rnahybrid.txt", sep="|", header=F, na.strings="")
+rna
+write.table(rna[-1,], "test_rna_gene.txt", sep=":", row.names=F, quote=FALSE)
+rna2<-read.table("test_rna_gene.txt", sep=":", header=F, na.strings="")
+rna2
+
+# I make a second table from the first, so that I can have two to play with. 
+n_rna<-rna2[c(1,4),]
+n_rna
+
+# Do you want to tidy stuff up first? Or select by certain parameters? If so, do so now. 
+# Once your tables are tidy, then you can merge them.
+
+# We're looking for the same gene AND the same start position - so we need to merge based
+# on TWO columns.
+# Note that both my tables have the SAME column headers.
+both_rna<-merge(rna2, n_rna, by=c("V2","V9"))
+both_rna
