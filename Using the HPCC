@@ -1,0 +1,66 @@
+# The following links may be helpful:
+# http://nyx.cent.gla.ac.uk/unix/TheanoTensorflow.pdf
+# http://nyx.cent.gla.ac.uk/unix/conda-cheatsheet.pdf
+# http://nyx.cent.gla.ac.uk/unix/R-install-packages.pdf
+
+# Installing files:
+
+# Log in then change to get more computer space: 
+qsub -I -l nodes=1:centos6,walltime=24:00:00
+
+#######################################################################################################################################
+## To install anaconda for the first time: ############################################################################################
+#######################################################################################################################################
+# The following links may be helpful:
+# http://nyx.cent.gla.ac.uk/unix/TheanoTensorflow.pdf
+
+# Get the package from the website: 
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+
+# Once the download has completed then run the installer:
+bash Anaconda3-2020.02-Linux-x86_64.sh
+
+# Then page through the license agreement and type 'yes'
+# You are then prompted to confirm the install directory (something like
+# /export/home/GUID/anaconda2) – press ENTER to accept the default location. The installer will
+# then work away for 2 or more hours installing a local version of Python – you will see updates to
+# the screen as it installs all the component packages. When it finishes it will give you the option to
+# update your PATH environment variable in the startup script .bashrc. 
+# type 'no'
+
+#######################################################################################################################################
+## To install a program via bioconda: ############################################################################################
+#######################################################################################################################################
+
+#Then had to reimport the anaconda to PATH (evidently doesn't stay put!): 
+export PATH=/export/home/jmi45g/anaconda2/bin:$PATH
+
+export PATH=/export/home/jmi45g/anaconda2/bin/python:$PATH
+
+#Checked it was there:
+conda info
+
+# It worked!
+
+conda remove intarna 
+
+# 1. To install IntaRNA (v3.2.0)
+
+conda install -c conda-forge -c bioconda intarna
+
+# It will 'solve environment' for a while
+# When asked, type 'y' for yes. 
+
+# It should then install dependencies and intarna
+# Note that it will install them into the anaconda envs, and the executable file for IntaRNA will be in the anaconda2/bin area
+
+# Check you have the right version installed! 
+IntaRNA --version
+
+IntaRNA --help
+
+# To see if it works: 
+# Note that you need the path to the program location.
+/export/home/jmi45g/anaconda2/bin/IntaRNA put-your-commands-in-here-and-press-enter-to-run!
+
+
