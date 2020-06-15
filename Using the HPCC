@@ -74,9 +74,16 @@ Type 'nano'. This will open a black screen - like a plain sheet of paper.
 #PBS -l walltime=50:00:00
 #PBS -l cput=50:00:00
 #PBS -l nodes=1:centos6
-type-your-script-here
 
-Save and then make it executable:
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home/jmi45g/anaconda3/bin/IntaRNA type-your-commands-here
+
+
+
+Save (CTRL+X, then say 'y' then type in the name) and then make it executable:
 
 chmod +x ./name-of-script
 
