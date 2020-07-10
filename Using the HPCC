@@ -92,3 +92,128 @@ Then do:
 qsub ./name-of-your-script
 
 
+
+####################################################
+#############  ls ##################################
+
+# Note, to see more about this can do
+
+man ls # manual for ls, can use man for various things
+
+ls -a # lists all files (inlcuding the hidden files with a .)
+
+ls -lrth # lists files, with  long format in reverse order sorted by time of modification, with the file size in human terms (eg. 4.0kb)
+
+
+###############################################
+############ cd ##############################
+
+cd ../ # returns you up a directory
+cd . # keeps you in the current directory
+
+# Each directory has a . and a .. hidden file which are essentially the directory you are in and it's parent
+
+cd  # On it's own, typing cd will return you to your home directory. 
+
+cd ~/results # This will take you to the results folder in your HOME (~) directory.
+
+
+
+###########################################
+########## cat ###########################
+
+# cat puts the entire contents of a file on the screen
+# Other ways to see a file include less (one page at a time), head (top ten lines, do head -5 file, to see just 5 lines etc), more, tail. 
+
+cat # on it's own just writes whatever you write to the screen. Do CTRL + D to get out of it.
+cat > list.txt 
+hello
+I'm
+writing 
+a 
+list
+CTRL +D # will create a file called list.txt with what you ahve just written.
+
+cat >> list1 # will append output to a file, so whatever you type next will be added to list1 file.
+
+cat list1 list2 > biglist # will combine two files together. 
+
+#####################################
+####### sort ########################
+
+# Will sort a file alphabetically or numerically
+
+sort < biglist > sort_biglist # Takes biglist and output sort_biglist
+
+###################################
+##### pipes ######################
+
+# Can ignore writing the intermediate files
+
+cat list1 list2 | sort > sort_biglist
+
+
+###################################
+###### apropos ###################
+
+apropos keyword # use for when you are not sure what to do with something, eg apropos copy , will return all options for copy
+
+man keyword # will return the manual
+
+whatis keyword # will return a little about the command.
+
+########################################
+####### less ##########################
+
+less file # See one page of the file, press space to see the next page
+
+less file # puts the first page up then type...
+/gene # searches through the file for the first occurance of gene
+[n] # for the next occurance of gene! 
+
+
+##################################
+###### grep ####################
+
+grep science file.txt # searches for science
+grep Science file.txt # searches for Science
+grep -i science file.txt # searches for Science and science
+grep -i 'spinning top' file.txt # to search for a phrase put it in apostrophes
+
+-v display those lines that do NOT match
+-n precede each maching line with the line number
+-c print only the total count of matched lines
+
+grep -vnci science file.txt
+
+
+#####################################
+####### du df etc ##################
+
+# Use to find out how much space you have left!
+
+df -h . # Provides the total amount of space in your home directory and how much you have used
+du -h # Provides the total size of the SUB-directories in your current directory in human terms ( e.g. 3.0kb)
+
+
+##########################################
+######### HISTORY #######################
+
+history
+The bash shell keeps an ordered list of all the commands that you have entered. Each command is given a number according to the order it was entered.
+
+-bash-3.2$ history (show command history list)
+
+If you are using the bash shell, you can use the exclamation character (!) to recall commands easily.
+
+-bash-3.2$ !! (recall last command)
+
+-bash-3.2$ !-3 (recall third most recent command)
+
+-bash-3.2$ !5 (recall 5th command in list)
+
+-bash-3.2$ !grep (recall last command starting with grep)
+
+You can increase the size of the history buffer by typing
+
+-bash-3.2$ export HISTSIZE 2000
