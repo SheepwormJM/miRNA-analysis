@@ -1,0 +1,99 @@
+# Some scripts used
+
+######################################################################################
+## To get help ##
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home/jmi45g/anaconda3/bin/IntaRNA --fullhelp > ~/intrna.help.txt
+
+######################################################################################
+
+-bash-3.2$ more run_test_intarna
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home/jmi45g/anaconda3/bin/IntaRNA -t test_mRNA.fa -q test.fa --outMode=C --out Jenni_awesome_mir9551_targetsites_c.csv
+
+-bash-3.2$ more run_test_intarna_2
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home/jmi45g/anaconda3/bin/IntaRNA -t test_mRNA.fa -q test.fa --outMode=C --out Jenni_awesome_mir9551_targetsites_g.csv --se
+edBP=6 --seedMaxUP=1 --outCsvCols=id1,start1,end1,id2,start2,end2,subseqDP,hybridDP,seedStart2,seedEnd2,seedE,Pu1,Pu2,E --outCsvSor
+t=E --default-log-file=logfile
+
+
+-bash-3.2$ more run_test_intarna_cele
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home2/jmi45g/anaconda3/envs/miRNA/bin/IntaRNA -t cele_mrna.fa -q let-7.fa --out Jenni_cele_let-7_drawn -n 5 --outOverlap Q
+--seedMaxUP 1
+
+
+-bash-3.2$ more run_test_intarna_cele_temp
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home2/jmi45g/anaconda3/envs/miRNA/bin/IntaRNA -t cele_mrna.fa -q let-7.fa --out Jenni_cele_let-7_drawn_39 -n 5 --outOverlap
+ Q --seedMaxUP 1 --temperature 39
+
+
+-bash-3.2$ more run_test_intarna_cele_R
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home2/jmi45g/anaconda3/envs/miRNA/bin/IntaRNA -t cele_mrna.fa -q let-7.fa --out Jenni_cele_let-7_drawnR8_BP5 -n 5 --outOver
+lap Q --seedMaxUP 1 --seedQRange 2-8 --seedBP 5
+
+
+
+-bash-3.2$ more run_test_intarna_cele_Joe
+#!/bin/sh
+#PBS -l walltime=50:00:00
+#PBS -l cput=50:00:00
+#PBS -l nodes=1:centos6
+
+source ~/.bashrc
+
+cd /export/home2/jmi45g/intaRNA
+
+/export/home2/jmi45g/anaconda3/envs/miRNA/bin/IntaRNA -t cele_mrna.fa -q let-7.fa --out Jenni_cele_let-7_drawnR8_BP5 -n 5 --outOver
+lap Q --seedBP 5 --temperature 39
